@@ -1,3 +1,6 @@
+from read_database.read_database import (
+    DataBase, read_data
+)
 
 
 def duel(
@@ -6,6 +9,7 @@ def duel(
         first_unit_quantity: int,
         second_unit_quantity: int,
         type_of_quantity: int,
+        database: DataBase,
 ):
     """
     :param first_unit_name: name for database
@@ -13,8 +17,10 @@ def duel(
     :param first_unit_quantity: of soldiers/gold/weeks
     :param second_unit_quantity: of soldiers/gold/weeks
     :param type_of_quantity: 0: quantity
+    :param database: look read_database package
     :return: name of winner
     """
+    data = read_data()
     print(
         f"Duel!\n"
         f"{first_unit_name}x{first_unit_quantity}vs"
