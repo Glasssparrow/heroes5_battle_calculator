@@ -22,10 +22,4 @@ def duel(
     :param database: look read_database package.
     :return: chance of victory for first unit.
     """
-    print(
-        f"Duel!\n"
-        f"{first_unit_name}x{first_unit_quantity}vs"
-        f"{second_unit_name}x{second_unit_quantity}.\n"
-        f"Type of duel - {type_of_quantity}."
-    )
     return 0
