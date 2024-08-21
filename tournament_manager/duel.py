@@ -1,4 +1,4 @@
 
 
 def duel():
-    pass
+    print("Duel!")
