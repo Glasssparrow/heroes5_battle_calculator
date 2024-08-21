@@ -10,6 +10,7 @@ def just_1vs1(
         first_unit_quantity: int,
         second_unit_quantity: int,
         type_of_quantity: int,
+        rounds: int,
 ):
     """
     :param first_unit_name: name for database
@@ -17,6 +18,7 @@ def just_1vs1(
     :param first_unit_quantity: of soldiers/gold/weeks
     :param second_unit_quantity: of soldiers/gold/weeks
     :param type_of_quantity: 0: quantity
+    :param rounds: how many battles to simulate
     :return: chance of victory for first unit
     """
     data = read_data()
@@ -26,6 +28,7 @@ def just_1vs1(
         first_unit_quantity,
         second_unit_quantity,
         type_of_quantity,
+        rounds,
         data,
     )
     print(

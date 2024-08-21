@@ -9,6 +9,7 @@ def duel(
     first_unit_quantity: int,
     second_unit_quantity: int,
     type_of_quantity: int,
+    rounds: int,
     database: DataBase,
 ):
     """
@@ -17,6 +18,7 @@ def duel(
     :param first_unit_quantity: of soldiers/gold/weeks
     :param second_unit_quantity: of soldiers/gold/weeks
     :param type_of_quantity: 0: quantity
+    :param rounds: how many battles to simulate
     :param database: look read_database package
     :return: chance of victory for first unit
     """
