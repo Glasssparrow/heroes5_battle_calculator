@@ -8,4 +8,3 @@ def tournament_order():
         100, 100,
         "Количество"
     )
-    print("tournament successful!")
