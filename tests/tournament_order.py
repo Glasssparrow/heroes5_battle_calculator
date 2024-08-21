@@ -8,4 +8,4 @@ def tournament_order():
         100, 100,
         0
     )
-    print(winner)
+    print(f'winner is "{winner}"')
