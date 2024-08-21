@@ -3,7 +3,7 @@ from read_database.read_database import (
 )
 
 
-def duel(
+def just_1vs1(
         first_unit_name: str,
         second_unit_name: str,
         first_unit_quantity: int,
