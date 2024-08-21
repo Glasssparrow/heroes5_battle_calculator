@@ -24,7 +24,6 @@ def duel(
     """
     wins_unit1 = 0
     for num in range(rounds):
-        if num % 3:
-            wins_unit1 += 1
+        wins_unit1 += 1
     chance = round(wins_unit1/rounds, 3)
     return chance
