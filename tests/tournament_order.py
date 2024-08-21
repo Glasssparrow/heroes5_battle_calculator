@@ -1,4 +1,4 @@
-from tournament_manager.duel import just_1vs1
+from tournament_manager.just_1vs1 import just_1vs1
 
 
 def tournament_order():
@@ -8,4 +8,4 @@ def tournament_order():
         100, 100,
         0
     )
-    print(f'winner is "{winner}"')
+    print(f'Манекен1 have {winner*100}% chance to win')

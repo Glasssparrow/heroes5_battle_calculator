@@ -1,15 +1,15 @@
 from read_database.read_database import (
-    DataBase, read_data
+    DataBase
 )
 
 
-def just_1vs1(
-        first_unit_name: str,
-        second_unit_name: str,
-        first_unit_quantity: int,
-        second_unit_quantity: int,
-        type_of_quantity: int,
-        database: DataBase,
+def duel(
+    first_unit_name: str,
+    second_unit_name: str,
+    first_unit_quantity: int,
+    second_unit_quantity: int,
+    type_of_quantity: int,
+    database: DataBase,
 ):
     """
     :param first_unit_name: name for database
@@ -18,13 +18,12 @@ def just_1vs1(
     :param second_unit_quantity: of soldiers/gold/weeks
     :param type_of_quantity: 0: quantity
     :param database: look read_database package
-    :return: name of winner
+    :return: chance of victory for first unit
     """
-    data = read_data()
     print(
         f"Duel!\n"
         f"{first_unit_name}x{first_unit_quantity}vs"
         f"{second_unit_name}x{second_unit_quantity}.\n"
         f"Type of duel - {type_of_quantity}."
     )
-    return "Duel is fake!"
+    return 0
