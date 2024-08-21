@@ -13,14 +13,14 @@ def duel(
     database: DataBase,
 ):
     """
-    :param first_unit_name: name for database
-    :param second_unit_name: name for database
-    :param first_unit_quantity: of soldiers/gold/weeks
-    :param second_unit_quantity: of soldiers/gold/weeks
-    :param type_of_quantity: 0: quantity
-    :param rounds: how many battles to simulate
-    :param database: look read_database package
-    :return: chance of victory for first unit
+    :param first_unit_name: name for the database.
+    :param second_unit_name: name for the database.
+    :param first_unit_quantity: of soldiers/gold/weeks.
+    :param second_unit_quantity: of soldiers/gold/weeks.
+    :param type_of_quantity: 0: quantity.
+    :param rounds: how many battles to simulate.
+    :param database: look read_database package.
+    :return: chance of victory for first unit.
     """
     print(
         f"Duel!\n"
