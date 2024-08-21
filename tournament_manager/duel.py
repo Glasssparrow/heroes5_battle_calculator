@@ -1,11 +1,11 @@
 
 
 def duel(
-        first_unit_name,
-        second_unit_name,
-        first_unit_quantity,
-        second_unit_quantity,
-        type_of_quantity,
+        first_unit_name: str,
+        second_unit_name: str,
+        first_unit_quantity: int,
+        second_unit_quantity: int,
+        type_of_quantity: int,
 ):
     print(
         f"Duel!\n"
