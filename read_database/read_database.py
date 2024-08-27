@@ -2,10 +2,11 @@
 
 class DataBase:
 
-    pass
+    def __init__(self):
+        self.the_unit = "the_unit"
 
     def get_unit(self, unit_name):
-        return None
+        return self.the_unit
 
 
 def read_data():
