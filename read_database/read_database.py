@@ -1,9 +1,10 @@
+from simulator.unit.unit import Unit
 
 
 class DataBase:
 
     def __init__(self):
-        self.the_unit = "the_unit"
+        self.the_unit = Unit()
 
     def get_unit(self, unit_name):
         return self.the_unit

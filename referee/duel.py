@@ -26,9 +26,12 @@ def duel(
     wins_unit1 = 0
     for num in range(rounds):
         unit1 = database.get_unit(first_unit_name)
+        unit1.id = 0
         unit2 = database.get_unit(second_unit_name)
+        unit2.id = 1
         winner = battle(unit1, unit2)
-        wins_unit1 += 1
+        if winner.id == unit1.id:
+            wins_unit1 += 1
 
     chance = round(wins_unit1/rounds, 3)
     return chance
