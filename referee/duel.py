@@ -1,6 +1,7 @@
 from read_database.read_database import (
     DataBase
 )
+from simulator.battle import battle
 
 
 def duel(
@@ -26,6 +27,7 @@ def duel(
     for num in range(rounds):
         unit1 = database.get_unit(first_unit_name)
         unit2 = database.get_unit(second_unit_name)
+        winner = battle(unit1, unit2)
         wins_unit1 += 1
 
     chance = round(wins_unit1/rounds, 3)
