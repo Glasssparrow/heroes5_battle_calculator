@@ -23,6 +23,8 @@ def duel(
     :return: chance of victory for first unit.
     """
     wins_unit1 = 0
+    unit1 = database.get_unit(first_unit_name)
+    unit2 = database.get_unit(second_unit_name)
     for num in range(rounds):
         wins_unit1 += 1
 
