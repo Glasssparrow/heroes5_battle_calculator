@@ -28,8 +28,10 @@ def duel(
     wins_unit1 = 0
     for num in range(rounds):
         unit1 = database.get_unit(first_unit_name)
+        unit1.get_quantity(first_unit_quantity)
         unit1.id = 0
         unit2 = database.get_unit(second_unit_name)
+        unit2.get_quantity(second_unit_quantity)
         unit2.id = 1
         winner = battle(unit1, unit2, turn_limit)
         if winner.id == unit1.id:
