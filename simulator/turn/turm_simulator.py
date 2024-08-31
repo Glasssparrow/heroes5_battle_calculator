@@ -9,12 +9,10 @@ class TurnSimulator:
         self.map.add_unit(
             unit=self.units[0],
             x=0, y=5,
-            color=self.units[0].color,
         )
         self.map.add_unit(
             unit=self.units[0],
             x=11, y=5,
-            color=self.units[0].color,
         )
 
     def next_turn(self, active_unit):
