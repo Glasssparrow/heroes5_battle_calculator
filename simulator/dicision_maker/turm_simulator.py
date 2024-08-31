@@ -1,5 +1,0 @@
-
-
-class TurnSimulator:
-
-    pass
