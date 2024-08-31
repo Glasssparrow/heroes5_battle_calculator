@@ -8,4 +8,5 @@ def battle(unit1, unit2, turn_limit):
     simulation = TurnSimulator(units)
     for turn in range(turn_limit):
         active_unit = initiative_system.get_active_unit()
+        simulation.next_turn(active_unit)
     return unit1
