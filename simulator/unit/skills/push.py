@@ -1,7 +1,7 @@
 from .common import calculate_base_chance
 from ..common import check_random
 from ..effects import *
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 from .apply_effect import PeasantBash
 from ..requirements import push, run_away
 

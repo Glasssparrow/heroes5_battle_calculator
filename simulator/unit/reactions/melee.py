@@ -1,8 +1,8 @@
 from random import randint
-from ..common import calculate_damage, check_random, check_ghost
+from ..common import calculate_damage, check_ghost
 from .common import Reaction
 from ..effects.counterattack import *
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 from ..requirements import run_away
 
 

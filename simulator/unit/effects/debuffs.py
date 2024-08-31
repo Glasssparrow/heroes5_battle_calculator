@@ -1,6 +1,6 @@
 from .common import Effect
 from .darkness import Blind
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 
 
 class Block1Counterattack(Effect):

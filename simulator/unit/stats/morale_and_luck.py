@@ -1,6 +1,6 @@
 from .common import Stat
 from math import floor
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 
 
 class Luck(Stat):

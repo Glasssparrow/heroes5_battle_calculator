@@ -1,5 +1,5 @@
 from ..common import check_random
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 from ..effects import SlowNoSkill, SlowBasics, SlowAdvanced, SlowExpert
 
 

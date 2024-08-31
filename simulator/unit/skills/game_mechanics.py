@@ -1,5 +1,5 @@
 from .common import Skill
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 
 
 class DispellAfterTakingDamage(Skill):

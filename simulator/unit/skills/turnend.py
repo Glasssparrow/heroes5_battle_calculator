@@ -1,7 +1,7 @@
 from .common import Skill
 from ..common import check_random
 from ..effects import *
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 from random import randint
 
 

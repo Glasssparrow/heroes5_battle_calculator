@@ -1,5 +1,5 @@
 from .common import Skill
-from ..simulator_keywords import *
+from simulator.simulator_keywords import *
 from random import randint
 from ..common import calculate_damage
 from math import floor

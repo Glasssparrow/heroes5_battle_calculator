@@ -1,6 +1,6 @@
 from math import copysign, floor
 from random import random
-from .simulator_keywords import *
+from simulator.simulator_keywords import *
 
 
 def calculate_damage(damage, attack, defence, max_damage):
