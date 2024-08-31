@@ -9,7 +9,8 @@ class Initiative:
     def get_active_unit(self):
         self.active_unit_index += 1
         if self.active_unit_index < len(self.units):
-            return self.units[self.active_unit_index]
+            pass
         else:
             self.active_unit_index = 0
-            return self.units[self.active_unit_index]
+        print(self.units[self.active_unit_index].name)
+        return self.units[self.active_unit_index]
