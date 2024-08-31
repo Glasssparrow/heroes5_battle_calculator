@@ -12,5 +12,4 @@ class Initiative:
             pass
         else:
             self.active_unit_index = 0
-        print(self.units[self.active_unit_index].name)
         return self.units[self.active_unit_index]
