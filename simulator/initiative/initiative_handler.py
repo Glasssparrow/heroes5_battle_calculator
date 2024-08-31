@@ -12,4 +12,5 @@ class Initiative:
             pass
         else:
             self.active_unit_index = 0
-        return self.units[self.active_unit_index]
+        active_unit = self.units[self.active_unit_index]
+        return active_unit
