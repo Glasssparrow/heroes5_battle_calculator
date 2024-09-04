@@ -1,4 +1,4 @@
 
 
-def get_attack_positions_for_action():
+def get_melee_attack_positions():
     pass
