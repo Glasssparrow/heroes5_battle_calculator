@@ -1,4 +1,5 @@
 from ..battle_map.battle_map import BattleMap
+from ..dicision_maker.choose_action import choose_action
 
 
 class TurnSimulator:
@@ -16,4 +17,4 @@ class TurnSimulator:
         )
 
     def next_turn(self, active_unit):
-        pass
+        action = choose_action(active_unit)

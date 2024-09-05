@@ -4,6 +4,6 @@ from .get_positions import (
 )
 
 
-def choose_action():
+def choose_action(unit):
     melee_attacks = get_melee_attack_positions()
     range_attacks = get_range_attack_positions()
