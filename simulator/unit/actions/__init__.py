@@ -4,5 +4,5 @@ __all__ = [
     "Melee", "WeakMelee",
     "DoubleAttackIfKill", "DoubleAttack", "Assault",
     "LizardCharge", "ChivalryCharge",
-    "MeleeNoCounter", "MeleeNoCounterIfSlowed"
+    "MeleeNoCounter", "MeleeNoCounterIfSlowed",
 ]
