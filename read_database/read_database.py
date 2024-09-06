@@ -12,8 +12,8 @@ class DataBase:
         }
 
     def get_unit(self, unit_name):
-        unit = Unit(**self.for_unit1)
-        return unit
+        the_unit = Unit(**self.for_unit1)
+        return the_unit
 
 
 def read_data():
