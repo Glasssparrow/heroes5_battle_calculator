@@ -1,4 +1,4 @@
-from simulator.unit.unit import Unit
+from simulator import *
 
 
 class DataBase:
