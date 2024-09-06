@@ -13,6 +13,7 @@ class DataBase:
 
     def get_unit(self, unit_name):
         the_unit = Unit(**self.for_unit1)
+        the_unit.add_action(Melee)
         return the_unit
 
 
