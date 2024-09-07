@@ -1,5 +1,4 @@
 from .get_distance import get_distance
-from .get_available_cells import get_danger_zone
 from .dijkstra_on_grid import Pathfinder
 
 
@@ -93,9 +92,6 @@ class BattleMap:
             return pathfinder_big(x, y, unit.speed)
         else:
             return pathfinder_small(x, y, unit.speed)
-
-    def get_danger_zone(self, unit):
-        return get_danger_zone(self, unit)
 
     def apply_auras(self, unit):
         pass
