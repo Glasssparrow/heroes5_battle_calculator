@@ -11,6 +11,7 @@ class AttackPositions:
 
 def get_melee_attack_positions(unit, battle_map):
     attack_positions = []
+    available_cells = battle_map.get_available_cells(unit)
     for action_index, action in enumerate(unit.actions):
         attack_positions.append(AttackPositions(
             action_index=action_index,

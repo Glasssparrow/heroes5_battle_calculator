@@ -17,6 +17,7 @@ def battle(unit1, unit2, turn_limit):
         x=8, y=8,
         color="Красный",
     )
+    battle_map.create_pathfinders()
     simulation = TurnSimulator(units, battle_map)
     for turn in range(turn_limit):
         active_unit = initiative_system.get_active_unit()
