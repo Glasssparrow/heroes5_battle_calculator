@@ -8,6 +8,6 @@ def tournament_order():
         100, 100,
         0,
         1,
-        5,
+        3,
     )
     print(f'Манекен1 have {winner*100}% chance to win')
