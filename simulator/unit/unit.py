@@ -69,9 +69,9 @@ class Unit:
 
         self.tiles_moved = 0
 
-    def take_action(self, action_type, target, battle_map):
+    def take_action(self, action_index, target, battle_map):
         self.start_turn()
-        self._action(action_type, target, battle_map)
+        self.actions[action_index].act(target, battle_map)
         self.end_turn()
 
     def start_turn(self):
@@ -79,12 +79,6 @@ class Unit:
         for skill in self.turnend_skills:
             if ACTIVATE_AT_TURN_START in skill.activation_cases:
                 skill.use()
-                return
-
-    def _action(self, action_type, target, battle_map):
-        for action in self.actions:
-            if action.keyword == action_type:
-                action.act(target, battle_map)
                 return
 
     def use_aura(self, target, distance):
