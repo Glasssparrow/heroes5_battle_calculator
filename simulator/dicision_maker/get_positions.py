@@ -9,9 +9,9 @@ class AttackPositions:
         self.action_threat_lvl = 0
 
 
-def get_melee_attack_positions():
+def get_melee_attack_positions(unit, battle_map):
     attack_positions = []
 
 
-def get_range_attack_positions():
+def get_range_attack_positions(unit, battle_map):
     attack_positions = []

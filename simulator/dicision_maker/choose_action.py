@@ -5,6 +5,6 @@ from .get_positions import (
 
 
 def choose_action(unit, battle_map):
-    melee_attacks = get_melee_attack_positions()
-    range_attacks = get_range_attack_positions()
+    melee_attacks = get_melee_attack_positions(unit, battle_map)
+    range_attacks = get_range_attack_positions(unit, battle_map)
     return 0
