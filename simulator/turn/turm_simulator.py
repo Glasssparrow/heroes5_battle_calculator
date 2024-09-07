@@ -1,5 +1,6 @@
 from ..battle_map.battle_map import BattleMap
 from ..dicision_maker.choose_action import choose_action
+from ..dicision_maker.choose_target import choose_target
 
 
 class TurnSimulator:
@@ -18,5 +19,6 @@ class TurnSimulator:
 
     def next_turn(self, active_unit):
         active_unit.start_turn()
-        action = choose_action(active_unit)
+        action_index = choose_action(active_unit)
+        target = choose_target(active_unit, self.map)
         active_unit.end_turn()
