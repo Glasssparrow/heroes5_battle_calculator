@@ -19,7 +19,7 @@ class TurnSimulator:
 
     def next_turn(self, active_unit):
         active_unit.start_turn()
-        action_index = choose_action(active_unit)
+        action_index = choose_action(active_unit, self.map)
         action = active_unit.actions[action_index]
         target = choose_target(active_unit, action, self.map)
         if target:
