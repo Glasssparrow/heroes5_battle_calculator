@@ -70,9 +70,7 @@ class Unit:
         self.tiles_moved = 0
 
     def take_action(self, action_index, target, battle_map):
-        self.start_turn()
         self.actions[action_index].act(target, battle_map)
-        self.end_turn()
 
     def start_turn(self):
         self.dispell_by_case(DISPELL_AT_TURN_START)
