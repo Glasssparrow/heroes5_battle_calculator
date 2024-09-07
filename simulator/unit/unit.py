@@ -140,7 +140,7 @@ class Unit:
         revived = self.quantity - quantity_before
         return revived
 
-    def get_quantity(self, quantity):
+    def set_quantity(self, quantity):
         self._max_quantity = quantity
         self.quantity = quantity
         self.hp = quantity * self.health
@@ -181,3 +181,8 @@ class Unit:
             if immunity == immunity_keyword:
                 return True
         return False
+
+    def how_healthy(self):
+        max_health = self._max_quantity * self.health
+        how_healthy = self.hp / max_health
+        return round(how_healthy, 2)
