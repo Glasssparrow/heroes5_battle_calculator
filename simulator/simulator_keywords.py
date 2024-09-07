@@ -56,3 +56,4 @@ POISON = "poison"
 
 # Типы действий
 MELEE_ACTION = "melee"
+JUST_MOVEMENT = "movement_action"
