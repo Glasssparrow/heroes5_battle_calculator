@@ -1,4 +1,4 @@
-
+from ..battle_map.get_distance import get_distance
 
 class AttackPositions:
 
@@ -17,7 +17,14 @@ def get_melee_attack_positions(the_unit, battle_map):
         if unit.color != the_unit.color:
             enemy_units.append(unit)
     for (x, y), length, path in available_cells:
-        pass
+        for enemy in enemy_units:
+            if get_distance(
+                    coord1=(x, y),
+                    is_big1=the_unit.big,
+                    coord2=(enemy.coord[0], enemy.coord[1]),
+                    is_big2=enemy.big,
+            ) == 1:
+                pass
     for action_index, action in enumerate(the_unit.actions):
         attack_positions.append(AttackPositions(
             action_index=action_index,
