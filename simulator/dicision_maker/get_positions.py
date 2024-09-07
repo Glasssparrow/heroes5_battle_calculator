@@ -16,6 +16,7 @@ def get_melee_attack_positions(the_unit, battle_map):
     for unit in battle_map.units:
         if unit.color != the_unit.color:
             enemy_units.append(unit)
+    attack_positions_coords = []
     for (x, y), length, path in available_cells:
         for enemy in enemy_units:
             if get_distance(
@@ -24,7 +25,7 @@ def get_melee_attack_positions(the_unit, battle_map):
                     coord2=(enemy.coord[0], enemy.coord[1]),
                     is_big2=enemy.big,
             ) == 1:
-                pass
+                attack_positions_coords.append((x, y))
     for action_index, action in enumerate(the_unit.actions):
         attack_positions.append(AttackPositions(
             action_index=action_index,
