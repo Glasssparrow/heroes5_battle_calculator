@@ -10,8 +10,8 @@ class AttackPositions:
 
 
 def get_melee_attack_positions():
-    pass
+    attack_positions = []
 
 
 def get_range_attack_positions():
-    pass
+    attack_positions = []
