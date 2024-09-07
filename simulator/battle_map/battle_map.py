@@ -1,5 +1,5 @@
 from .get_distance import get_distance
-from .get_available_cells import get_available_cells, get_danger_zone
+from .get_available_cells import get_danger_zone
 from .dijkstra_on_grid import Pathfinder
 
 
