@@ -7,6 +7,16 @@ def battle(unit1, unit2, turn_limit):
     units = [unit1, unit2]
     initiative_system = Initiative(units)
     battle_map = BattleMap(10, 12)
+    battle_map.add_unit(
+        unit=unit1,
+        x=2, y=2,
+        color="Синий",
+    )
+    battle_map.add_unit(
+        unit=unit2,
+        x=8, y=8,
+        color="Красный",
+    )
     simulation = TurnSimulator(units, battle_map)
     for turn in range(turn_limit):
         active_unit = initiative_system.get_active_unit()
