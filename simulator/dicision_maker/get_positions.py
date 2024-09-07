@@ -1,5 +1,6 @@
 from ..battle_map.get_distance import get_distance
 
+
 class AttackPositions:
 
     def __init__(self, action_index, action):
