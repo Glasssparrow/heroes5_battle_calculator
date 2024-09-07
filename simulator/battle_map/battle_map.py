@@ -15,7 +15,6 @@ class BattleMap:
         self.pathfinders_big = {}
         # Упрощенные карты угрозы для юнитов.
         # id юнита это его позиция в листе.
-        self.reach_maps = []  # Ничего не делает
 
         # Размеры карты
         self.map_height = map_height
