@@ -8,14 +8,6 @@ class TurnSimulator:
     def __init__(self, units: list, battle_map: BattleMap):
         self.units = units
         self.map = battle_map
-        self.map.add_unit(
-            unit=self.units[0],
-            x=0, y=5,
-        )
-        self.map.add_unit(
-            unit=self.units[0],
-            x=11, y=5,
-        )
 
     def next_turn(self, active_unit):
         active_unit.start_turn()
