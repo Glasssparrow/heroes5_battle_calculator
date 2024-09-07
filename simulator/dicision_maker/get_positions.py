@@ -37,7 +37,9 @@ def get_melee_attack_positions(the_unit, battle_map):
         attack_positions.append(attack_position)
         for x, y in attack_positions_coords:
             attack_position.add_coord(x, y)
+    return attack_positions
 
 
 def get_range_attack_positions(unit, battle_map):
     attack_positions = []
+    return attack_positions
