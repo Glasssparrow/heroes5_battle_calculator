@@ -22,4 +22,6 @@ class TurnSimulator:
         action_index = choose_action(active_unit)
         action = active_unit.actions[action_index]
         target = choose_target(active_unit, action, self.map)
+        if target:
+            active_unit.take_action(action_index, target, self.map)
         active_unit.end_turn()

@@ -1,4 +1,4 @@
 
 
 def choose_target(active_unit, action, battle_map):
-    pass
+    return None  # Возвращает None, если не атакуем
