@@ -85,11 +85,14 @@ class BattleMap:
         )
     
     def get_available_cells(self, unit):
-        return get_available_cells(
-            pathfinder_big=self.pathfinders_big[unit.color],
-            pathfinder_small=self.pathfinders_small[unit.color],
-            unit=unit,
-        )
+        pathfinder_big = self.pathfinders_big[unit.color]
+        pathfinder_small = self.pathfinders_small[unit.color]
+        x, y = unit.coord[0], unit.coord[1]
+        # Возвращает экземпляр класса Path
+        if unit.big:
+            return pathfinder_big(x, y, unit.speed)
+        else:
+            return pathfinder_small(x, y, unit.speed)
 
     def get_danger_zone(self, unit):
         return get_danger_zone(self, unit)
