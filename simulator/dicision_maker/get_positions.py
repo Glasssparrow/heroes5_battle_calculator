@@ -8,6 +8,9 @@ class AttackPositions:
         self.action_index = action_index  # position in unit's actions list.
         self.action_threat_lvl = action.threat
 
+    def add_coord(self, x, y):
+        self.positions.append((x, y))
+
 
 def get_melee_attack_positions(the_unit, battle_map):
     attack_positions = []
@@ -27,10 +30,13 @@ def get_melee_attack_positions(the_unit, battle_map):
             ) == 1:
                 attack_positions_coords.append((x, y))
     for action_index, action in enumerate(the_unit.actions):
-        attack_positions.append(AttackPositions(
+        attack_position = AttackPositions(
             action_index=action_index,
             action=action,
-        ))
+        )
+        attack_positions.append(attack_position)
+        for x, y in attack_positions_coords:
+            attack_position.add_coord(x, y)
 
 
 def get_range_attack_positions(unit, battle_map):
