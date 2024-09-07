@@ -17,4 +17,6 @@ class TurnSimulator:
         )
 
     def next_turn(self, active_unit):
+        active_unit.start_turn()
         action = choose_action(active_unit)
+        active_unit.end_turn()
