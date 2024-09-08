@@ -55,5 +55,6 @@ BATTLE_FRENZY_MODIFIER = "battle_frenzy_modifier"
 POISON = "poison"
 
 # Типы действий
-MELEE_ACTION = "melee"
-JUST_MOVEMENT = "movement_action"
+MELEE_ACTION = "melee"  # Атака в ближнем бою
+MELEE_SPELL = "melee_spell"  # Атака в ближнем бою без возможности двигаться
+JUST_MOVEMENT = "movement_action"  # Просто движение без атаки

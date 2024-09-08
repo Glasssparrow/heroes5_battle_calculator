@@ -1,4 +1,6 @@
-from ..simulator_keywords import MELEE_ACTION
+from ..simulator_keywords import (
+    MELEE_ACTION, MELEE_SPELL,
+)
 
 
 class DangerZone:
