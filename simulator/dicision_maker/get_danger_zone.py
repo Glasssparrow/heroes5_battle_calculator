@@ -10,6 +10,20 @@ class DangerZone:
         for x in range(length):
             self.danger_map.append([0] * height)
 
+    def __getitem__(self, item):
+        return self.danger_map[item[0]+self.length*item[1]]
+
+    def __setitem__(self, key, value):
+        if not isinstance(value, (float, int)):
+            raise Exception(
+                f"Допустимо лишь float/int, получено - {type(value)}"
+            )
+        if 0 <= key[0] < self.length and 0 <= key[1] < self.height:
+            self.danger_map[key[0]+self.length*key[1]] = value
+
+    def __delitem__(self, key):
+        self.danger_map[key[0]+self.length*key[1]] = 0
+
 
 class DangerMap:
 
