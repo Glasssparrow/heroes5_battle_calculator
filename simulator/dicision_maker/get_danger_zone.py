@@ -194,7 +194,7 @@ def add_tmp_melee_danger_zone_into_danger_zone(
         pass
 
 
-def get_danger_zone(battle_map, the_unit):
+def get_danger_zone(the_unit, battle_map):
     result = DangerZones(
         height=battle_map.map_height,
         length=battle_map.map_length,
