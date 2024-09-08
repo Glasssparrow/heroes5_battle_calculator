@@ -1,4 +1,5 @@
 from ..battle_map.get_distance import get_distance
+from .common import get_hostile_units
 
 
 class AttackPositions:
@@ -16,10 +17,7 @@ class AttackPositions:
 def get_melee_attack_positions(the_unit, battle_map):
     attack_positions = []
     available_cells = battle_map.get_available_cells(the_unit)
-    enemy_units = []
-    for unit in battle_map.units:
-        if unit.color != the_unit.color:
-            enemy_units.append(unit)
+    enemy_units = get_hostile_units(the_unit, battle_map)
     attack_positions_coords = []
     for (x, y), length, path in available_cells:
         for enemy in enemy_units:
