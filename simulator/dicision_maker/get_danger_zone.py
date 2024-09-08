@@ -1,7 +1,7 @@
 from ..simulator_keywords import MELEE_ACTION
 
 
-class DangerZoneInProgress:
+class DangerZone:
 
     def __init__(self, height, length):
         self.height = height
@@ -93,7 +93,7 @@ def get_attack_area(x, y, big):
 def get_melee_danger_zone(battle_map, unit):
     # Временная карта опасности.
     # Её мы и будем возвращать.
-    danger_tmp = DangerZoneInProgress(
+    danger_tmp = DangerZone(
         height=battle_map.map_height,
         length=battle_map.map_length,
     )
