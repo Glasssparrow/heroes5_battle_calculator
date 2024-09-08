@@ -6,9 +6,13 @@ class DangerZone:
     def __init__(self, height, length):
         self.height = height
         self.length = length
-        self.danger_map = []
+        self.melee_danger_map = []
+        self.range_danger_map = []
+        self.spells_danger_map = []
         for x in range(length):
-            self.danger_map.append([0]*height)
+            self.melee_danger_map.append([0] * height)
+            self.range_danger_map.append([0] * height)
+            self.spells_danger_map.append([0] * height)
 
     def __iter__(self):
         self.coord_for_iterator = []
