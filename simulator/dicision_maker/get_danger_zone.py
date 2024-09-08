@@ -6,13 +6,28 @@ class DangerZone:
     def __init__(self, height, length):
         self.height = height
         self.length = length
+        self.danger_map = []
+        for x in range(length):
+            self.danger_map.append([0] * height)
+
+
+class DangerMap:
+
+    def __init__(self, height, length):
+        self.height = height
+        self.length = length
         self.melee_danger_map = []
         self.range_danger_map = []
         self.spells_danger_map = []
-        for x in range(length):
-            self.melee_danger_map.append([0] * height)
-            self.range_danger_map.append([0] * height)
-            self.spells_danger_map.append([0] * height)
+
+    def set_melee_danger_zone(self, range_danger_map):
+        self.range_danger_map = range_danger_map
+
+    def set_range_danger_zone(self, range_danger_map):
+        self.range_danger_map = range_danger_map
+
+    def set_spell_danger_zone(self, range_danger_map):
+        self.range_danger_map = range_danger_map
 
 
 def get_attack_area(x, y, big):
