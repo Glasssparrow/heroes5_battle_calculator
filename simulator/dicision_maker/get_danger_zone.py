@@ -42,14 +42,14 @@ class DangerMap:
         self.range_danger_map = []
         self.spells_danger_map = []
 
-    def set_melee_danger_zone(self, range_danger_map):
-        self.range_danger_map = range_danger_map
+    def set_melee_danger_zone(self, melee_danger_map):
+        self.range_danger_map = melee_danger_map
 
     def set_range_danger_zone(self, range_danger_map):
         self.range_danger_map = range_danger_map
 
-    def set_spell_danger_zone(self, range_danger_map):
-        self.range_danger_map = range_danger_map
+    def set_spell_danger_zone(self, spells_danger_map):
+        self.range_danger_map = spells_danger_map
 
 
 def get_attack_area(x, y, big):
