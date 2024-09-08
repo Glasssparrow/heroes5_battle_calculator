@@ -66,7 +66,7 @@ def get_attack_area(x, y, big):
 def get_melee_danger_zone(battle_map, unit):
     # Временная карта опасности.
     # Её мы и будем возвращать.
-    danger_tmp = DangerZone(
+    melee_danger = DangerZone(
         height=battle_map.map_height,
         length=battle_map.map_length,
     )
@@ -83,7 +83,7 @@ def get_melee_danger_zone(battle_map, unit):
         raise Exception(
             f"{unit.name} не найдено действие рукопашной атаки."
         )
-    # Заполняем danger_tmp
+    # Заполняем melee_danger
     for coord, length, path in available_cells:
         attack_area = get_attack_area(
             x=coord[0], y=coord[1],
@@ -91,7 +91,7 @@ def get_melee_danger_zone(battle_map, unit):
         )
         for (x, y) in attack_area:
             pass
-    return danger_tmp
+    return melee_danger
 
 
 def get_danger_zone(the_unit, battle_map):
