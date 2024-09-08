@@ -186,28 +186,6 @@ def get_melee_danger_zone(battle_map, unit):
     return danger_tmp
 
 
-def add_tmp_melee_danger_zone_into_danger_zone(
-        danger_zone, danger_zone_tmp
-):
-    danger_zone_tmp.create_danger_map()
-    for x, y in danger_zone_tmp:
-        pass
-
-
 def get_danger_zone(the_unit, battle_map):
-    result = DangerZones(
-        height=battle_map.map_height,
-        length=battle_map.map_length,
-        unit_in_danger=the_unit,
-    )
-    for side_color, unit_ids_list in battle_map.sides.items():
-        if side_color == the_unit.color:
-            continue
-        for unit_id in unit_ids_list:
-            unit = battle_map.units[unit_id]
-            danger_tmp = get_melee_danger_zone(battle_map, unit)
-            add_tmp_melee_danger_zone_into_danger_zone(
-                danger_zone=result,
-                danger_zone_tmp=danger_tmp,
-            )
-    return result
+    melee_danger = get_melee_danger_zone(battle_map, the_unit)
+
