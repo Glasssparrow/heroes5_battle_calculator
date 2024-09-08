@@ -120,3 +120,8 @@ def get_melee_danger_zone(battle_map, unit):
 
 def get_danger_zone(the_unit, battle_map):
     melee_danger = get_melee_danger_zone(battle_map, the_unit)
+    danger_map = DangerMap(
+        height=battle_map.map_height,
+        length=battle_map.map_length,
+    )
+    danger_map.set_melee_danger_zone(melee_danger)
