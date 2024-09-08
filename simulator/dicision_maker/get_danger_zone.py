@@ -89,6 +89,8 @@ def get_melee_danger_zone(battle_map, unit):
             x=coord[0], y=coord[1],
             big=unit.big,
         )
+        for (x, y) in attack_area:
+            pass
     return danger_tmp
 
 
