@@ -91,7 +91,8 @@ def get_melee_danger_zone(battle_map, unit):
         raise Exception(
             f"{unit.name} не найдено действие рукопашной атаки."
         )
-    # Заполняем melee_danger
+    # Заполняем melee_danger.
+    # Заполняем угрозу MELEE_ACTION.
     for coord, length, path in available_cells:
         attack_area = get_attack_area(
             x=coord[0], y=coord[1],
@@ -99,6 +100,21 @@ def get_melee_danger_zone(battle_map, unit):
         )
         for (x, y) in attack_area:
             melee_danger[x, y] = danger
+    # добавляем угрозу от MELEE_SPELL.
+    melee_spell_danger = 0
+    for action in unit.actions:
+        if (
+                action.type_of_action == MELEE_SPELL and
+                action.threat > melee_spell_danger
+        ):
+            melee_spell_danger = action.threat
+    if melee_spell_danger > danger:
+        attack_area = get_attack_area(
+            x=unit.coord[0], y=unit.coord[1],
+            big=unit.big,
+        )
+        for (x, y) in attack_area:
+            melee_danger[x, y] = melee_spell_danger
     return melee_danger
 
 
