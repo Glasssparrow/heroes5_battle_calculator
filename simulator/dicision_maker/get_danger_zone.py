@@ -14,24 +14,6 @@ class DangerZone:
             self.range_danger_map.append([0] * height)
             self.spells_danger_map.append([0] * height)
 
-    def __iter__(self):
-        self.coord_for_iterator = []
-        for y in range(self.height):
-            for x in range(self.length):
-                self.coord_for_iterator.append((x, y,))
-        self.iteration = -1
-        return self
-
-    def __next__(self):
-        self.iteration += 1
-        if self.iteration < len(self.coord_for_iterator):
-            return (
-                self.coord_for_iterator[self.iteration][0],  # x_coord
-                self.coord_for_iterator[self.iteration][1],  # y_coord
-            )
-        else:
-            raise StopIteration
-
 
 def get_attack_area(x, y, big):
     attack_area = []
