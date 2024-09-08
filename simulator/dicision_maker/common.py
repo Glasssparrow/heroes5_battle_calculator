@@ -6,4 +6,3 @@ def get_hostile_units(the_unit, battle_map):
         if unit.color != the_unit.color:
             enemy_units.append(unit)
     return enemy_units
-
