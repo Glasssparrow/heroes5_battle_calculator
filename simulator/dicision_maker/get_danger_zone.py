@@ -118,6 +118,14 @@ def get_melee_danger_zone(battle_map, unit):
     return melee_danger
 
 
+def get_range_danger_zone():
+    pass
+
+
+def get_spell_danger_zone():
+    pass
+
+
 def get_danger_zone(the_unit, battle_map):
     melee_danger = get_melee_danger_zone(battle_map, the_unit)
     danger_map = DangerMap(
