@@ -72,8 +72,6 @@ def get_attack_area(x, y, big):
 
 
 def get_melee_danger_zone(battle_map, unit):
-    # Временная карта опасности.
-    # Её мы и будем возвращать.
     melee_danger = DangerZone(
         height=battle_map.map_height,
         length=battle_map.map_length,
