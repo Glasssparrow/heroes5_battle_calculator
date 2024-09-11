@@ -116,7 +116,7 @@ def get_melee_danger_zone(battle_map, unit):
     return melee_danger
 
 
-def get_range_danger_zone():
+def get_range_danger_zone(battle_map, unit):
     pass
 
 
