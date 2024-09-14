@@ -120,7 +120,7 @@ def get_range_danger_zone(battle_map, unit):
     pass
 
 
-def get_spell_danger_zone():
+def get_spell_danger_zone(battle_map, unit):
     pass
 
 
