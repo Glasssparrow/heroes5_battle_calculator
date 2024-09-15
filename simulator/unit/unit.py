@@ -34,7 +34,7 @@ class Unit:
         self.id = None
         # Текущая координата.
         # Присваивается при выставлении на карту. Меняется
-        self.coord = None
+        self.coord = None  # tuple
         # Координата в виде числа: int.
         # Используется в классе карты.
         self.pos = None

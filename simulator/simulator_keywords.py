@@ -57,4 +57,6 @@ POISON = "poison"
 # Типы действий
 MELEE_ACTION = "melee"  # Атака в ближнем бою
 MELEE_SPELL = "melee_spell"  # Атака в ближнем бою без возможности двигаться
+HIT_AND_RUN_ACTION = "hit_and_run_melee_attack"
 JUST_MOVEMENT = "movement_action"  # Просто движение без атаки
+MELEE_ACTIONS = [MELEE_ACTION, MELEE_SPELL, HIT_AND_RUN_ACTION]

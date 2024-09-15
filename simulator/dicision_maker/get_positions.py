@@ -1,5 +1,11 @@
 from ..battle_map.get_distance import get_distance
 from .common import get_hostile_units
+from ..simulator_keywords import (
+    MELEE_ACTIONS,  # Лист действий ближнего боя
+    MELEE_ACTION,  # ближний бой
+    MELEE_SPELL,  # ближний бой без возможности двигаться
+    HIT_AND_RUN_ACTION,  # Атака с возвратом на исходную позицию
+)
 
 
 class AttackPositions:
@@ -29,13 +35,32 @@ def get_melee_attack_positions(the_unit, battle_map):
             ) == 1:
                 attack_positions_coords.append((x, y))
     for action_index, action in enumerate(the_unit.actions):
-        attack_position = AttackPositions(
-            action_index=action_index,
-            action=action,
-        )
-        attack_positions.append(attack_position)
-        for x, y in attack_positions_coords:
-            attack_position.add_coord(x, y)
+        if (
+            action.type_of_action in MELEE_ACTIONS and
+            action.type_of_action != MELEE_SPELL
+        ):
+            attack_position = AttackPositions(
+                action_index=action_index,
+                action=action,
+            )
+            attack_positions.append(attack_position)
+            for x, y in attack_positions_coords:
+                attack_position.add_coord(x, y)
+        elif (
+            action.type_of_action == MELEE_SPELL and
+            the_unit.coord in attack_positions
+        ):
+            attack_position = AttackPositions(
+                action_index=action_index,
+                action=action,
+            )
+            attack_positions.append(attack_position)
+            attack_position.add_coord(
+                x=the_unit.coord[0],
+                y=the_unit.coord[1],
+            )
+        else:
+            continue
     return attack_positions
 
 

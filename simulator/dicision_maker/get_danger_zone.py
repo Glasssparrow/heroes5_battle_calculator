@@ -1,6 +1,8 @@
 from ..simulator_keywords import (
+    MELEE_ACTIONS,  # Лист действий ближнего боя
     MELEE_ACTION,  # ближний бой
     MELEE_SPELL,  # ближний бой без возможности двигаться
+    HIT_AND_RUN_ACTION,  # Атака с возвратом на исходную позицию
 )
 
 
@@ -81,7 +83,8 @@ def get_melee_danger_zone(battle_map, unit):
     danger = 0
     for action in unit.actions:
         if (
-            action.type_of_action == MELEE_ACTION and
+            action.type_of_action in MELEE_ACTIONS and
+            action.type_of_action != MELEE_SPELL and  # обработаем отдельно
             action.threat > danger
         ):
             danger = action.threat
@@ -91,13 +94,14 @@ def get_melee_danger_zone(battle_map, unit):
         )
     # Заполняем melee_danger.
     # Заполняем угрозу MELEE_ACTION.
-    for coord, length, path in available_cells:
+    for coord, length, path in available_cells:  # можем дойти до
+        # С них можем ударить по
         attack_area = get_attack_area(
             x=coord[0], y=coord[1],
             big=unit.big,
         )
-        for (x, y) in attack_area:
-            melee_danger[x, y] = danger
+        for (x, y) in attack_area:  # можем ударить с
+            melee_danger[x, y] = danger  # записываем в карту угрозы
     # добавляем угрозу от MELEE_SPELL.
     melee_spell_danger = 0
     for action in unit.actions:
