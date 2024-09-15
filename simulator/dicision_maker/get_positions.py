@@ -46,9 +46,17 @@ def get_melee_attack_positions(the_unit, battle_map):
             attack_positions.append(attack_position)
             for x, y in attack_positions_coords:
                 attack_position.add_coord(x, y)
+            if (
+                action.type_of_action == HIT_AND_RUN_ACTION and
+                the_unit.coord not in attack_positions_coords
+            ):
+                attack_position.add_coord(
+                    x=the_unit.coord[0],
+                    y=the_unit.coord[1],
+                )
         elif (
             action.type_of_action == MELEE_SPELL and
-            the_unit.coord in attack_positions
+            the_unit.coord in attack_positions_coords
         ):
             attack_position = AttackPositions(
                 action_index=action_index,
