@@ -117,10 +117,14 @@ def get_melee_danger_zone(battle_map, unit):
 
 
 def get_range_danger_zone(battle_map, unit):
+    # Карта опасности дальнобойных атак.
+    # Составляется для действий на которые хватает боеприпасов.
     pass
 
 
 def get_spell_danger_zone(battle_map, unit):
+    # Карта опасности заклинаний.
+    # Составляется для заклинаний на которые хватает маны.
     pass
 
 
