@@ -119,19 +119,31 @@ def get_melee_danger_zone(battle_map, unit):
 def get_range_danger_zone(battle_map, unit):
     # Карта опасности дальнобойных атак.
     # Составляется для действий на которые хватает боеприпасов.
-    pass
+    range_danger = DangerZone(
+        height=battle_map.map_height,
+        length=battle_map.map_length,
+    )
+    return range_danger
 
 
 def get_spell_danger_zone(battle_map, unit):
     # Карта опасности заклинаний.
     # Составляется для заклинаний на которые хватает маны.
-    pass
+    spell_danger = DangerZone(
+        height=battle_map.map_height,
+        length=battle_map.map_length,
+    )
+    return spell_danger
 
 
 def get_danger_zone(the_unit, battle_map):
     melee_danger = get_melee_danger_zone(battle_map, the_unit)
+    range_danger = get_range_danger_zone(battle_map, the_unit)
+    spell_danger = get_spell_danger_zone(battle_map, the_unit)
     danger_map = DangerMap(
         height=battle_map.map_height,
         length=battle_map.map_length,
     )
     danger_map.set_melee_danger_zone(melee_danger)
+    danger_map.set_range_danger_zone(range_danger)
+    danger_map.set_spell_danger_zone(spell_danger)
