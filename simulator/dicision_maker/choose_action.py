@@ -10,6 +10,15 @@ def choose_action(the_unit, battle_map):
     enemy_units = get_hostile_units(the_unit, battle_map)
     melee_attacks = get_melee_attack_positions(the_unit, battle_map)
     range_attacks = get_range_attack_positions(the_unit, battle_map)
+    action = None
+    threat = 0
+    for attack_position in melee_attacks:
+        if not action:
+            action = attack_position.action_index
+            continue
+        if attack_position.action.threat > threat:
+            action = attack_position.action_index
+            threat = attack_position.action.threat
     danger_zone = get_danger_zone(enemy_units[0], battle_map)
     if not melee_attacks and not range_attacks:
         pass
