@@ -16,7 +16,7 @@ def choose_action(the_unit, battle_map):
     action = None  # Номер действия в листе действий экземпляра Unit
     threat = 0
     for attack_position in melee_attacks:
-        if not action:
+        if not action:  # Если действие не выбрано, берем первое попавшееся.
             action = attack_position.action_index
             continue
         if attack_position.action.threat > threat:
