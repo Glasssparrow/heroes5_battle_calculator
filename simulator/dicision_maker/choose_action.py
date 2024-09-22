@@ -15,7 +15,7 @@ def choose_action(the_unit, battle_map):
     # Выбор действия с наибольшей угрозой.
     action = None  # Номер действия в листе действий экземпляра Unit
     threat = 0
-    # Выбираем действие с наибольшим уровнем угрозы.
+    # Выбираем действие с наибольшим уровнем угрозы (из тех что можно применить).
     for attack_position in melee_attacks:
         if not action:  # Если действие не выбрано, берем первое попавшееся.
             action = attack_position.action_index
