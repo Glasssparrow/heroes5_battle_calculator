@@ -133,6 +133,8 @@ def get_range_danger_zone(battle_map, unit):
 def get_spell_danger_zone(battle_map, unit):
     # Карта опасности заклинаний.
     # Составляется для заклинаний на которые хватает маны.
+    # Если заклинание стоит 0 маны, то на него маны хватает.
+    # Заклинания ближнего боя уходят в карту опасности ближнего боя.
     spell_danger = DangerZone(
         height=battle_map.map_height,
         length=battle_map.map_length,
