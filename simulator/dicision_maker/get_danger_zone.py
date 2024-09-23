@@ -141,6 +141,7 @@ def get_spell_danger_zone(battle_map, unit):
 
 
 def get_danger_zone(the_unit, battle_map):
+    # На текущем этапе возвращает только карту опасности для ближнего боя.
     melee_danger = get_melee_danger_zone(battle_map, the_unit)
     range_danger = get_range_danger_zone(battle_map, the_unit)
     spell_danger = get_spell_danger_zone(battle_map, the_unit)
