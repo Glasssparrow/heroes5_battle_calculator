@@ -1,7 +1,6 @@
 from ..battle_map.battle_map import BattleMap
 from ..dicision_maker.choose_action import choose_action
 from ..dicision_maker.choose_target import choose_target
-from ..dicision_maker.choose_cell import choose_cell
 
 
 class TurnSimulator:
@@ -20,7 +19,6 @@ class TurnSimulator:
         # цель это всегда второй юнит.
         # Ну или None, если действие это просто движение.
         target = choose_target(active_unit, action, self.map)
-        cell = choose_cell(active_unit, action, self.map)
         if target:
             active_unit.take_action(action_index, target, self.map)
         active_unit.end_turn()
