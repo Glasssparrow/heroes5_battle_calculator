@@ -6,6 +6,12 @@ from .get_danger_zone import get_danger_zone
 from .common import get_hostile_units
 
 
+class Decision:
+
+    def __init__(self, action_id):
+        self.action_id = action_id
+
+
 def choose_action(the_unit, battle_map):
     # Выбирает действие, которое будет применять юнит.
     # Перемещение это тоже действие.
