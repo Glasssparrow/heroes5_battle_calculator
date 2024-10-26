@@ -16,9 +16,6 @@ class Decision:
 
 
 def choose_action(the_unit, battle_map):
-    # Выбирает действие, которое будет применять юнит.
-    # Перемещение это тоже действие.
-    # TODO
     # Также выбирает клетку с которой должно выполниться действие.
     enemy_units = get_hostile_units(the_unit, battle_map)
     melee_attacks = get_melee_attack_positions(the_unit, battle_map)
