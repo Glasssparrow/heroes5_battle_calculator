@@ -4,7 +4,6 @@ from read_database.read_database import (
 from simulator.battle import battle
 
 
-# Устанавливает условия поединка.
 def duel(
     first_unit_name: str,
     second_unit_name: str,
