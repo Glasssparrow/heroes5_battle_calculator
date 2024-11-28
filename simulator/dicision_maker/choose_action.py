@@ -9,8 +9,10 @@ from .common import get_hostile_units
 class Decision:
 
     def __init__(self, action_id):
+        # Выбранное действие
         self.action_id = action_id
         self.action = None
+        # Позиция с которой действие будет применено.
         self.chosen_position = None
 
 
