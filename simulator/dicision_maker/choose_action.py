@@ -11,7 +11,6 @@ class Decision:
     def __init__(self, action_id):
         self.action_id = action_id
         self.action = None
-        self.positions = []
         self.chosen_position = None
 
 
