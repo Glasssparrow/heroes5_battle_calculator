@@ -22,19 +22,19 @@ def choose_action(the_unit, battle_map):
     melee_attacks = get_melee_attack_positions(the_unit, battle_map)
     range_attacks = get_range_attack_positions(the_unit, battle_map)
     # Выбор действия с наибольшей угрозой.
-    action = None  # Номер действия в листе действий экземпляра Unit
+    action_index = None  # Номер действия в листе действий экземпляра Unit
     threat = 0
     # Выбираем действие с наибольшим уровнем угрозы (из тех что можно применить).
     for attack_position in melee_attacks:
-        if not action:  # Если действие не выбрано, берем первое попавшееся.
-            action = attack_position.action_index
+        if not action_index:  # Если действие не выбрано, берем первое попавшееся.
+            action_index = attack_position.action_index
             continue
         if attack_position.action.threat > threat:
-            action = attack_position.action_index
+            action_index = attack_position.action_index
             threat = attack_position.action.threat
     for attack_position in range_attacks:
         if attack_position.action.threat > threat:
-            action = attack_position.action_index
+            action_index = attack_position.action_index
             threat = attack_position.action.threat
     danger_zone = get_danger_zone(enemy_units[0], battle_map)
     if not melee_attacks and not range_attacks:
