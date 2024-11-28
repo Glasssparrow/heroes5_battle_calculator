@@ -41,8 +41,7 @@ def choose_action(the_unit, battle_map):
             threat = attack_position.action.threat
     danger_zone = get_danger_zone(enemy_units[0], battle_map)
     if not melee_attacks and not range_attacks:
-        # Если не может атаковать, выбрать клетку
-        # для перемещения.
+        # Если не может атаковать, выбрать клетку для перемещения.
         pass
     # TODO
     # Выбор между атакой и выходом из опасной зоны.
