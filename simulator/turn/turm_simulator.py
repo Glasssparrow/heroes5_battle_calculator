@@ -14,11 +14,9 @@ class TurnSimulator:
         # Выбираем действие с наибольшим уровнем угрозы,
         # которое можем применить.
         decision = choose_action(active_unit, self.map)
-        action = active_unit.actions[decision]
+        action = active_unit.actions[decision.action_id]
         # Т.к. юнита только 2, а действия пока только ближнего боя,
         # цель это всегда второй юнит.
         # Ну или None, если действие это просто движение.
-        target = choose_target(active_unit, action, self.map)
-        if target:
-            active_unit.take_action(decision, target, self.map)
+        active_unit.take_action(decision, decision.target, self.map)
         active_unit.end_turn()
