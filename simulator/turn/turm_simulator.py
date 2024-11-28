@@ -1,6 +1,5 @@
 from ..battle_map.battle_map import BattleMap
 from ..dicision_maker.choose_action import choose_action
-from ..dicision_maker.choose_target import choose_target
 
 
 class TurnSimulator:

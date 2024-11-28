@@ -4,16 +4,19 @@ from .get_positions import (
 )
 from .get_danger_zone import get_danger_zone
 from .common import get_hostile_units
+from .choose_target import choose_target
 
 
 class Decision:
 
-    def __init__(self, action_id):
+    def __init__(self, action_id, action, chosen_position, target):
         # Выбранное действие
         self.action_id = action_id
-        self.action = None
+        self.action = action
         # Позиция с которой действие будет применено.
-        self.chosen_position = None
+        self.chosen_position = chosen_position
+        # Цель навыка
+        self.target = target
 
 
 def choose_action(the_unit, battle_map):
