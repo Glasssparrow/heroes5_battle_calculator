@@ -18,7 +18,7 @@ class TurnSimulator:
         # цель это всегда второй юнит.
         # Ну или None, если действие это просто движение.
         active_unit.take_action(
-            action_index=decision,
+            action_index=decision.action_id,
             target=decision.target,
             battle_map=self.map,
         )
