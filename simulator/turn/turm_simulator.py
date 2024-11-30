@@ -17,5 +17,9 @@ class TurnSimulator:
         # Т.к. юнита только 2, а действия пока только ближнего боя,
         # цель это всегда второй юнит.
         # Ну или None, если действие это просто движение.
-        active_unit.take_action(decision, decision.target, self.map)
+        active_unit.take_action(
+            action_index=decision,
+            target=decision.target,
+            battle_map=self.map,
+        )
         active_unit.end_turn()
