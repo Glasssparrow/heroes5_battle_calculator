@@ -8,7 +8,7 @@ from ..simulator_keywords import (
 )
 
 
-class AttackPositions:
+class AttackPositionsForAction:
 
     def __init__(self, action_index, action):
         self.positions = []
@@ -18,6 +18,17 @@ class AttackPositions:
 
     def add_coord(self, coord):
         self.positions.append((coord[0], coord[1]))
+
+
+class AttackPositions:
+    def __init__(self):
+        pass
+
+    def add_coord(self):
+        pass
+
+    def add_unit_to_coord(self):
+        pass
 
 
 def get_melee_attack_positions(the_unit, battle_map):
@@ -44,7 +55,7 @@ def get_melee_attack_positions(the_unit, battle_map):
             action.type_of_action in MELEE_ACTIONS and
             action.type_of_action != MELEE_SPELL
         ):
-            attack_position = AttackPositions(
+            attack_position = AttackPositionsForAction(
                 action_index=action_index,
                 action=action,
             )
@@ -64,7 +75,7 @@ def get_melee_attack_positions(the_unit, battle_map):
             action.type_of_action == MELEE_SPELL and
             the_unit.coord in attack_positions_coords
         ):
-            attack_position = AttackPositions(
+            attack_position = AttackPositionsForAction(
                 action_index=action_index,
                 action=action,
             )
