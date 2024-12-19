@@ -16,8 +16,8 @@ class AttackPositions:
         self.action_index = action_index  # position in unit's actions list.
         self.action_threat_lvl = action.threat
 
-    def add_coord(self, x, y):
-        self.positions.append((x, y))
+    def add_coord(self, coord):
+        self.positions.append((coord[0], coord[1]))
 
 
 def get_melee_attack_positions(the_unit, battle_map):
@@ -45,14 +45,13 @@ def get_melee_attack_positions(the_unit, battle_map):
             )
             attack_positions.append(attack_position)
             for x, y in attack_positions_coords:
-                attack_position.add_coord(x, y)
+                attack_position.add_coord((x, y,))
             if (
                 action.type_of_action == HIT_AND_RUN_ACTION and
                 the_unit.coord not in attack_positions_coords
             ):
                 attack_position.add_coord(
-                    x=the_unit.coord[0],
-                    y=the_unit.coord[1],
+                    coord=(the_unit.coord[0], the_unit.coord[1],),
                 )
         elif (
             action.type_of_action == MELEE_SPELL and
@@ -64,8 +63,7 @@ def get_melee_attack_positions(the_unit, battle_map):
             )
             attack_positions.append(attack_position)
             attack_position.add_coord(
-                x=the_unit.coord[0],
-                y=the_unit.coord[1],
+                coord=(the_unit.coord[0], the_unit.coord[1],),
             )
         else:
             continue
