@@ -20,10 +20,12 @@ class Decision:
 
 
 def choose_action(the_unit, battle_map):
-    # Также выбирает клетку с которой должно выполниться действие.
     enemy_units = get_hostile_units(the_unit, battle_map)
     melee_attacks = get_melee_attack_positions(the_unit, battle_map)
     range_attacks = get_range_attack_positions(the_unit, battle_map)
+    # attack.positions - лист координат (х, у,),
+    # с которых можно атаковать.
+
     # Выбор действия с наибольшей угрозой.
     action_index = None  # Номер действия в листе действий экземпляра Unit
     threat = 0
