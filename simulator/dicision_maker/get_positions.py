@@ -29,7 +29,9 @@ class AttackPositions:
         self.enemies_in_range[f"{x}:{y}"] = []
 
     def add_unit_to_coord(self, x, y, unit):
-        self.enemies_in_range[f"{x}:{y}"] = unit
+        if (x,y) not in self.positions:
+            raise Exception(f"{x,y} не найдено в списке коорд.")
+        self.enemies_in_range[f"{x}:{y}"].append(unit)
 
 
 def get_melee_attack_positions(the_unit, battle_map):
