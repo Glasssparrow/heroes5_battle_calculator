@@ -21,7 +21,7 @@ def battle(unit1, unit2, turn_limit):
     battle_map.create_pathfinders()  # Подготавливаем карту к работе.
     # Подготавливаем симулятор
     simulation = TurnSimulator(units, battle_map)
-    # Расчитываем заданное количество ходов.
+    # Рассчитываем заданное количество ходов.
     for turn in range(turn_limit):
         active_unit = initiative_system.get_active_unit()
         simulation.next_turn(active_unit)
