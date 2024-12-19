@@ -9,7 +9,6 @@ from ..simulator_keywords import (
 
 
 class AttackPositionsForAction:
-
     def __init__(self, action_index, action):
         self.positions = []
         self.action_name = action.name
@@ -22,13 +21,15 @@ class AttackPositionsForAction:
 
 class AttackPositions:
     def __init__(self):
-        pass
+        self.positions = []
+        self.enemies_in_range = {}
 
-    def add_coord(self):
-        pass
+    def add_coord(self, x, y):
+        self.positions.append((x,y))
+        self.enemies_in_range[f"{x}:{y}"] = []
 
-    def add_unit_to_coord(self):
-        pass
+    def add_unit_to_coord(self, x, y, unit):
+        self.enemies_in_range[f"{x}:{y}"] = unit
 
 
 def get_melee_attack_positions(the_unit, battle_map):
