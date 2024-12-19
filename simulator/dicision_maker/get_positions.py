@@ -20,6 +20,9 @@ class AttackPositionsForAction:
         self.positions.append((x, y,))
         self.targets[f"{x}:{y}"] = targets
 
+    def get_enemies_within_reach_from_tile(self, x, y):
+        return self.targets[f"{x}:{y}"]
+
 
 class AttackPositions:
     def __init__(self):
