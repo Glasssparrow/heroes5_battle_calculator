@@ -33,6 +33,9 @@ class AttackPositions:
             raise Exception(f"{x,y} не найдено в списке коорд.")
         self.enemies_in_range[f"{x}:{y}"].append(unit)
 
+    def get_units(self, x, y):
+        return self.enemies_in_range[f"{x}:{y}"]
+
 
 def get_melee_attack_positions(the_unit, battle_map):
     positions_for_melee_actions = []
@@ -40,8 +43,9 @@ def get_melee_attack_positions(the_unit, battle_map):
     enemy_units = get_hostile_units(the_unit, battle_map)
 
     # Находим все точки с которых можно ударить после движения.
-    attack_positions = []
+    attack_positions = AttackPositions()
     for (x, y), length, path in available_cells:
+        some_enemies_within_range = False
         for enemy in enemy_units:
             if get_distance(
                     coord1=(x, y),
@@ -49,7 +53,17 @@ def get_melee_attack_positions(the_unit, battle_map):
                     coord2=(enemy.coord[0], enemy.coord[1]),
                     is_big2=enemy.big,
             ) == 1:
-                attack_positions.append((x, y))
+                some_enemies_within_range = True
+        if some_enemies_within_range:
+            attack_positions.add_coord(x, y)
+            for enemy in enemy_units:
+                if get_distance(
+                        coord1=(x, y),
+                        is_big1=the_unit.big,
+                        coord2=(enemy.coord[0], enemy.coord[1]),
+                        is_big2=enemy.big,
+                ) == 1:
+                    attack_positions.add_unit_to_coord(x, y, enemy)
 
     # Заполняем лист positions_for_melee_actions
     for action_index, action in enumerate(the_unit.actions):
@@ -58,18 +72,20 @@ def get_melee_attack_positions(the_unit, battle_map):
             action.type_of_action in MELEE_ACTIONS and
             action.type_of_action != MELEE_SPELL
         ):
-            attack_position = AttackPositionsForAction(
+            pos_for_action = AttackPositionsForAction(
                 action_index=action_index,
                 action=action,
             )
-            positions_for_melee_actions.append(attack_position)
-            for x, y in attack_positions:
-                attack_position.add_coord((x, y,))
+            positions_for_melee_actions.append(pos_for_action)
+            for x, y in attack_positions.positions:
+                pos_for_action.add_coord((x, y,))
+            # Если можем ударить и вернуться, то
+            # текущую позицию тоже добавляем.
             if (
                 action.type_of_action == HIT_AND_RUN_ACTION and
                 the_unit.coord not in attack_positions
             ):
-                attack_position.add_coord(
+                pos_for_action.add_coord(
                     coord=(the_unit.coord[0], the_unit.coord[1],),
                 )
         # Если можем ударить с места, то включаем
@@ -78,12 +94,12 @@ def get_melee_attack_positions(the_unit, battle_map):
             action.type_of_action == MELEE_SPELL and
             the_unit.coord in attack_positions
         ):
-            attack_position = AttackPositionsForAction(
+            pos_for_action = AttackPositionsForAction(
                 action_index=action_index,
                 action=action,
             )
-            positions_for_melee_actions.append(attack_position)
-            attack_position.add_coord(
+            positions_for_melee_actions.append(pos_for_action)
+            pos_for_action.add_coord(
                 coord=(the_unit.coord[0], the_unit.coord[1],),
             )
         # Если это не навык ближнего боя - пропускаем.
