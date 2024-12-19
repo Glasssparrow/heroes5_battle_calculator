@@ -24,6 +24,8 @@ def get_melee_attack_positions(the_unit, battle_map):
     attack_positions = []
     available_cells = battle_map.get_available_cells(the_unit)
     enemy_units = get_hostile_units(the_unit, battle_map)
+
+    # Находим все точки с которых можно ударить после движения.
     attack_positions_coords = []
     for (x, y), length, path in available_cells:
         for enemy in enemy_units:
@@ -34,6 +36,7 @@ def get_melee_attack_positions(the_unit, battle_map):
                     is_big2=enemy.big,
             ) == 1:
                 attack_positions_coords.append((x, y))
+
     for action_index, action in enumerate(the_unit.actions):
         if (
             action.type_of_action in MELEE_ACTIONS and
