@@ -46,7 +46,7 @@ class AttackPositions:
 
 
 def get_melee_attack_positions(the_unit, battle_map):
-    positions_for_melee_actions = []
+    result_list = []  # list of AttackPositionsForAction
     available_cells = battle_map.get_available_cells(the_unit)
     enemy_units = get_hostile_units(the_unit, battle_map)
 
@@ -73,7 +73,7 @@ def get_melee_attack_positions(the_unit, battle_map):
                 ) == 1:
                     attack_positions.add_unit_to_coord(x, y, enemy)
 
-    # Заполняем лист positions_for_melee_actions
+    # Заполняем лист result_list
     for action_index, action in enumerate(the_unit.actions):
         # Атаки после движения
         if (
@@ -84,7 +84,7 @@ def get_melee_attack_positions(the_unit, battle_map):
                 action_index=action_index,
                 action=action,
             )
-            positions_for_melee_actions.append(pos_for_action)
+            result_list.append(pos_for_action)
             for x, y in attack_positions.positions:
                 pos_for_action.add_coord(
                     coord=(x, y,),
@@ -110,7 +110,7 @@ def get_melee_attack_positions(the_unit, battle_map):
                 action_index=action_index,
                 action=action,
             )
-            positions_for_melee_actions.append(pos_for_action)
+            result_list.append(pos_for_action)
             pos_for_action.add_coord(
                 coord=(the_unit.coord[0], the_unit.coord[1],),
                 targets=attack_positions.get_all_units(),
@@ -118,7 +118,7 @@ def get_melee_attack_positions(the_unit, battle_map):
         # Если это не навык ближнего боя - пропускаем.
         else:
             continue
-    return positions_for_melee_actions
+    return result_list
 
 
 def get_range_attack_positions(unit, battle_map):
