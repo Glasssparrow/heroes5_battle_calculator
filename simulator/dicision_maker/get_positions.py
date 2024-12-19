@@ -39,6 +39,7 @@ def get_melee_attack_positions(the_unit, battle_map):
 
     # Заполняем лист attack_positions
     for action_index, action in enumerate(the_unit.actions):
+        # Атаки после движения
         if (
             action.type_of_action in MELEE_ACTIONS and
             action.type_of_action != MELEE_SPELL
@@ -57,6 +58,8 @@ def get_melee_attack_positions(the_unit, battle_map):
                 attack_position.add_coord(
                     coord=(the_unit.coord[0], the_unit.coord[1],),
                 )
+        # Если можем ударить с места, то включаем
+        # навыки ближнего боя, которые можно применить только с места.
         elif (
             action.type_of_action == MELEE_SPELL and
             the_unit.coord in attack_positions_coords
@@ -69,6 +72,7 @@ def get_melee_attack_positions(the_unit, battle_map):
             attack_position.add_coord(
                 coord=(the_unit.coord[0], the_unit.coord[1],),
             )
+        # Если это не навык ближнего боя - пропускаем.
         else:
             continue
     return attack_positions
