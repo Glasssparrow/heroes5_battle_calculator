@@ -37,6 +37,7 @@ def get_melee_attack_positions(the_unit, battle_map):
             ) == 1:
                 attack_positions_coords.append((x, y))
 
+    # Заполняем лист attack_positions
     for action_index, action in enumerate(the_unit.actions):
         if (
             action.type_of_action in MELEE_ACTIONS and
