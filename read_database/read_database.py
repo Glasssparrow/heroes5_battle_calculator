@@ -22,6 +22,7 @@ class DataBase:
             the_unit = Unit(**self.for_unit1)
         else:
             the_unit = Unit(**self.for_unit2)
+        the_unit.add_action(Movement)
         the_unit.add_action(Melee)
         return the_unit
 
