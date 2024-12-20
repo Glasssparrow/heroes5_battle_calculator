@@ -23,7 +23,7 @@ def choose_action(the_unit, battle_map):
     enemy_units = get_hostile_units(the_unit, battle_map)
     melee_attacks = get_melee_attack_positions(the_unit, battle_map)
     range_attacks = get_range_attack_positions(the_unit, battle_map)
-    # melee_attacks и range_attacks возвращает 
+    # melee_attacks ,range_attacks возвращает
     # list of AttackPositionsForAction
 
     # Выбор действия с наибольшей угрозой.
