@@ -15,8 +15,6 @@ class Melee(Action):
         self.keyword = MELEE_ATTACK
 
     def act(self, target, battle_map):
-        if not self.can_unit_act(target, battle_map):
-            return
         if self.is_melee_attack_possible(target, battle_map):
             self.strike(target, battle_map)
             target.react(MELEE_COUNTER, self.owner, battle_map)
@@ -105,8 +103,6 @@ class DoubleAttackIfKill(Melee):
         self.name = "Колун"
 
     def act(self, target, battle_map):
-        if not self.can_unit_act(target, battle_map):
-            return
         if self.is_melee_attack_possible(target, battle_map):
             kills = self.strike(target, battle_map)
             target.react(MELEE_COUNTER, self.owner, battle_map)
@@ -122,8 +118,6 @@ class DoubleAttack(Melee):
         self.name = "Двойной удар"
 
     def act(self, target, battle_map):
-        if not self.can_unit_act(target, battle_map):
-            return
         if self.is_melee_attack_possible(target, battle_map):
             self.strike(target, battle_map)
             target.react(MELEE_COUNTER, self.owner, battle_map)
@@ -138,8 +132,6 @@ class MeleeNoCounter(Melee):
         self.name = "Безответный удар"
 
     def act(self, target, battle_map):
-        if not self.can_unit_act(target, battle_map):
-            return
         if self.is_melee_attack_possible(target, battle_map):
             self.strike(target, battle_map)
 
@@ -211,8 +203,6 @@ class Assault(Melee):
         self.keyword = MELEE_ATTACK
 
     def act(self, target, battle_map):
-        if not self.can_unit_act(target, battle_map):
-            return
         if self.is_melee_attack_possible(target, battle_map):
             self.strike(target, battle_map)
             target.react(MELEE_COUNTER, self.owner, battle_map)
@@ -232,8 +222,6 @@ class MeleeNoCounterIfSlowed(Melee):
         self.name = "Безответный удар если враг замедлен"
 
     def act(self, target, battle_map):
-        if not self.can_unit_act(target, battle_map):
-            return
         if self.is_melee_attack_possible(target, battle_map):
             self.strike(target, battle_map)
             if not is_slowed(target):

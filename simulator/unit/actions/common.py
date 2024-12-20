@@ -22,6 +22,8 @@ class Action:
         pass
 
     def move_and_act(self, target, battle_map, new_position):
+        if not self.can_unit_act(target, battle_map):
+            return
         x, y = new_position[0], new_position[1]
         battle_map.move_unit(self, x, y)
         self.act(target, battle_map)
