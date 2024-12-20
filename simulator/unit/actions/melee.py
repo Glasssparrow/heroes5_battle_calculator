@@ -12,7 +12,7 @@ class Melee(Action):
     def __init__(self, owner):
         super().__init__(owner)
         self.name = "Атака в ближнем бою"
-        self.type_of_action = MELEE_ATTACK
+        self.type_of_action = MELEE_ACTION
 
     def act(self, target, battle_map):
         if self.is_melee_attack_possible(target, battle_map):
