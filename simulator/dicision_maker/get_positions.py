@@ -124,6 +124,13 @@ def get_melee_attack_positions(the_unit, battle_map):
     return result_list
 
 
-def get_range_attack_positions(unit, battle_map):
+def get_range_attack_positions(the_unit, battle_map):
     attack_positions = []
     return attack_positions
+
+def get_movement_positions(the_unit, battle_map):
+    movement_positions = []
+    available_cells = battle_map.get_available_cells(the_unit)
+    for (x, y), length, path in available_cells:
+        pass
+    return movement_positions
