@@ -18,6 +18,14 @@ class Action:
         self.range = None
         self.type_of_action = MELEE_ACTION
 
+    def act(self, target, battle_map):
+        pass
+
+    def move_and_act(self, target, battle_map, new_position):
+        x, y = new_position[0], new_position[1]
+        battle_map.move_unit(self, x, y)
+        self.act(target, battle_map)
+
     def can_unit_act(self, target, battle_map):
         if not self.owner.hp > 0:
             print(f"{self.owner.name} не может действовать т.к. мертв.")

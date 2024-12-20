@@ -21,5 +21,6 @@ class TurnSimulator:
             action_index=decision.action_id,
             target=decision.target,
             battle_map=self.map,
+            new_position=active_unit.coord,
         )
         active_unit.end_turn()

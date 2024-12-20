@@ -69,8 +69,12 @@ class Unit:
 
         self.tiles_moved = 0
 
-    def take_action(self, action_index, target, battle_map):
-        self.actions[action_index].act(target, battle_map)
+    def take_action(self,
+                    action_index, target,
+                    battle_map, new_position):
+        self.actions[action_index].move_and_act(
+            target, battle_map, new_position
+        )
 
     def start_turn(self):
         self.dispell_by_case(DISPELL_AT_TURN_START)

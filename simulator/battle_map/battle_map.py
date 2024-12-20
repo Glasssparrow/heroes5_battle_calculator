@@ -74,6 +74,13 @@ class BattleMap:
         self.units.append(unit)
 
     @staticmethod
+    def move_unit(unit, x, y):
+        distance = abs(x-unit.coord[0]) + abs(y-unit.coord[1])
+        unit.coord = (x, y)
+        unit.pos = unit.coord[0] + unit.coord[1] * 12
+        unit.tiles_moved = distance
+
+    @staticmethod
     def get_distance(coord1, coord2, is_big1, is_big2):
         return get_distance(coord1, coord2, is_big1, is_big2)
 
