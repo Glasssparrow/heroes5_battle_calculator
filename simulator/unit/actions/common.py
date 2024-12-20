@@ -18,6 +18,20 @@ class Action:
         self.range = None
         self.type_of_action = MELEE_ACTION
 
+    def can_unit_act(self, target, battle_map):
+        if not self.owner.hp > 0:
+            print(f"{self.owner.name} не может действовать т.к. мертв.")
+            return False
+        if not target.hp > 0:
+            print(f"{self.owner.name} не может действовать т.к. "
+                  f"цель мертва.")
+            return False
+        for effect in self.owner.effects:
+            if BLOCK_ACTION in effect.special_effects:
+                print(f"{self.owner.name} ожидает в нерешительности.")
+                return False
+        return True
+
     def can_be_used(self):
         # Проверяет достаточно ли маны или боеприпасов.
         if self.require_ammo > self.owner.ammo:
