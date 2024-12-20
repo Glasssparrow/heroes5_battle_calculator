@@ -7,12 +7,6 @@ DEFAULT_COLOR = "Бесцветный"
 GHOST = "ghost"
 WALL_OF_SHIELDS = "wall_of_shields"
 
-# Типы действий
-MELEE_ATTACK = "melee_attack"
-
-# Типы реакций
-MELEE_COUNTER = "melee_counter"
-
 # Условия активации навыков
 ACTIVATE_BEFORE_STRIKE = "before strike"
 ACTIVATE_AFTER_STRIKE = "after strike"
@@ -60,3 +54,6 @@ MELEE_SPELL = "melee_spell"  # Атака в ближнем бою без воз
 HIT_AND_RUN_ACTION = "hit_and_run_melee_attack"
 JUST_MOVEMENT = "movement_action"  # Просто движение без атаки
 MELEE_ACTIONS = [MELEE_ACTION, MELEE_SPELL, HIT_AND_RUN_ACTION]
+
+# Типы реакций
+MELEE_COUNTER = "melee_counter"
