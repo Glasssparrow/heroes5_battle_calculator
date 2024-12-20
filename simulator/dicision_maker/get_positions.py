@@ -131,6 +131,8 @@ def get_range_attack_positions(the_unit, battle_map):
 def get_movement_positions(the_unit, battle_map):
     movement_positions = []
     available_cells = battle_map.get_available_cells(the_unit)
+    attack_positions = AttackPositions()
     for (x, y), length, path in available_cells:
-        pass
+        attack_positions.add_coord(x, y)
+        attack_positions.add_unit_to_coord(x, y, the_unit)
     return movement_positions
