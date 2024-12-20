@@ -1,5 +1,5 @@
 from ..common import check_random
-from simulator.simulator_keywords import *
+from ...simulator_keywords import *
 from ..effects import SlowNoSkill, SlowBasics, SlowAdvanced, SlowExpert
 
 
@@ -8,7 +8,6 @@ class Action:
     def __init__(self, owner):
         self.name = "default"
         self.owner = owner
-        self.keyword = "no keyword"
         self.after_move = True
         self.blocked_in_melee = False
         self.require_mana = 0
@@ -16,7 +15,7 @@ class Action:
         # Данные для decisionmaker.
         self.threat = 1
         self.range = None
-        self.type_of_action = MELEE_ACTION
+        self.type_of_action = JUST_MOVEMENT
 
     def act(self, target, battle_map):
         pass
