@@ -47,7 +47,7 @@ class Melee(Action):
         return kills
 
     def calculate_damage_modifier(self, target):
-        shield_wall = shield_wall = self.calculate_shield_wall_modifier(
+        shield_wall = self.calculate_shield_wall_modifier(
             self.owner, target)
         return shield_wall * self.luck_modifier()
 
