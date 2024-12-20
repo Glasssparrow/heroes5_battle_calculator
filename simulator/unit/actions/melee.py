@@ -1,4 +1,4 @@
-from simulator.simulator_keywords import *
+from ...simulator_keywords import *
 from random import randint
 from ..common import (
     calculate_damage, calculate_base_chance,
@@ -12,7 +12,7 @@ class Melee(Action):
     def __init__(self, owner):
         super().__init__(owner)
         self.name = "Атака в ближнем бою"
-        self.keyword = MELEE_ATTACK
+        self.type_of_action = MELEE_ATTACK
 
     def act(self, target, battle_map):
         if self.is_melee_attack_possible(target, battle_map):
@@ -200,7 +200,6 @@ class Assault(Melee):
     def __init__(self, owner):
         super().__init__(owner)
         self.name = "Штурм"
-        self.keyword = MELEE_ATTACK
 
     def act(self, target, battle_map):
         if self.is_melee_attack_possible(target, battle_map):
